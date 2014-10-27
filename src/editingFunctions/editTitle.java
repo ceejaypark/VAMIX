@@ -149,6 +149,7 @@ public class editTitle {
 		panel.add(_fonts);
 		_fontSelection = new JTextField();
 		_fontSelection.setText("Select Font: ");
+		_fontSelection.setBorder(null);
 		_fontSelection.setEditable(false);
 		panel.add(_fontSelection);
 		_fonts.setSelectedIndex(0);
@@ -173,6 +174,7 @@ public class editTitle {
 		panel.add(_fontSize);
 		_fontSizeSelection = new JTextField();
 		_fontSizeSelection.setText("Select Font Size: ");
+		_fontSizeSelection.setBorder(null);
 		_fontSizeSelection.setEditable(false);
 		panel.add(_fontSizeSelection);
 		_fontSize.setSelectedIndex(3);
@@ -296,6 +298,7 @@ public class editTitle {
 		//add text box requesting user to input an output name
 		_titleText = new JTextField();
 		_titleText.setText("Output file name :");
+		_titleText.setBorder(null);
 		_titleText.setPreferredSize(new Dimension(115,20));
 		_titleText.setEditable(false);
 		panel.add(_titleText);
@@ -312,6 +315,7 @@ public class editTitle {
 
 		_mp4Display = new JTextField();
 		_mp4Display.setText(".mp4");
+		_mp4Display.setBorder(null);
 		_mp4Display.setEditable(false);
 		_titleName.setPreferredSize(new Dimension(115,20));
 		panel.add(_mp4Display);
@@ -331,6 +335,7 @@ public class editTitle {
 
 		_titleTextInformer = new JTextField();
 		_titleTextInformer.setText("Please specify text to add to video: ");
+		_titleTextInformer.setBorder(null);
 		_titleTextInformer.setEditable(false);
 		_layout.putConstraint(SpringLayout.NORTH, _titleTextInformer, 68,SpringLayout.NORTH, panel);
 		_layout.putConstraint(SpringLayout.WEST, _titleTextInformer, 15, SpringLayout.WEST, panel);

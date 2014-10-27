@@ -122,6 +122,7 @@ public class editWatermark {
 		panel.add(_positionChooser);
 		_positionText = new JTextField();
 		_positionText.setText("Watermark Position: ");
+		_positionText.setBorder(null);
 		_positionText.setEditable(false);
 		panel.add(_positionText);
 		_positionChooser.setSelectedIndex(3);

@@ -130,6 +130,7 @@ public class editCredits {
 		panel.add(fonts);
 		_fontSelection = new JTextField();
 		_fontSelection.setText("Select Font: ");
+		_fontSelection.setBorder(null);
 		_fontSelection.setEditable(false);
 		panel.add(_fontSelection);
 		fonts.setSelectedIndex(0);
@@ -190,6 +191,7 @@ public class editCredits {
 		panel.add(_fontSize);
 		_fontSizeSelection = new JTextField();
 		_fontSizeSelection.setText("Select Font Size: ");
+		_fontSizeSelection.setBorder(null);
 		_fontSizeSelection.setEditable(false);
 		panel.add(_fontSizeSelection);
 		_fontSize.setSelectedIndex(3);
@@ -310,6 +312,7 @@ public class editCredits {
 		//add text box requesting user to input an output name
 		_creditsText = new JTextField();
 		_creditsText.setText("Output file name :");
+		_creditsText.setBorder(null);
 		_creditsText.setPreferredSize(new Dimension(115,20));
 		_creditsText.setEditable(false);
 		panel.add(_creditsText);
@@ -327,6 +330,7 @@ public class editCredits {
 
 		_mp4Display = new JTextField();
 		_mp4Display.setText(".mp4");
+		_mp4Display.setBorder(null);
 		_mp4Display.setEditable(false);
 		_creditsName.setPreferredSize(new Dimension(115,20));
 		panel.add(_mp4Display);
@@ -346,6 +350,7 @@ public class editCredits {
 
 		_creditsTextInformer = new JTextField();
 		_creditsTextInformer.setText("Please specify text to add to video: ");
+		_creditsTextInformer.setBorder(null);
 		_creditsTextInformer.setEditable(false);
 		_layout.putConstraint(SpringLayout.NORTH, _creditsTextInformer, 68,SpringLayout.NORTH, panel);
 		_layout.putConstraint(SpringLayout.WEST, _creditsTextInformer, 15, SpringLayout.WEST, panel);
