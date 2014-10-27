@@ -7,6 +7,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.text.ParseException;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -24,16 +25,20 @@ public class createSubtitles {
 	private JTextField _subText;
 	private JButton _jbAddSub;
 	private JButton _jbCreateSub;
+	private JButton _jbClear;
 	private JTextField _subTextInformer;
 	private JTextField _startTimeInformer;
 	private JTextField _endTimeInformer;
 	private JTextField _fontInformer;
+	private JTextField _subInformer;
 	private JFormattedTextField _startTime;
 	private JFormattedTextField _timeInterval;
 	private JComboBox _fontOptions;
 	private String _fontOptionName;
 	private JScrollPane _subtitlePane;
 	private JList _subtitleList;
+	private int _subcounter = 1;
+	private DefaultListModel _listModel;
 
 	// Method to insert the Subs tab into JTabbedFrame.
 	public void insertSubsPageTab(final JTabbedPane pane){
@@ -47,6 +52,8 @@ public class createSubtitles {
 		addTextBox(panel);
 		addTimeBox(panel);
 		addFontOptions(panel);
+		addScrollPanel(panel);
+		_fontOptionName = "Normal";
 	}
 	
 	private void addTextBox(JPanel panel){
@@ -71,6 +78,15 @@ public class createSubtitles {
 		_endTimeInformer.setEditable(false);
 		panel.add(_endTimeInformer);
 		
+		_subInformer = new JTextField();
+		_subInformer.setEditable(false);
+		_subInformer.setPreferredSize(new Dimension(200,20));
+		panel.add(_subInformer);
+		
+		_layout.putConstraint(SpringLayout.WEST, _subInformer,20,SpringLayout.WEST,panel);
+		_layout.putConstraint(SpringLayout.NORTH, _subInformer,110,SpringLayout.NORTH,panel);
+		
+		
 		_layout.putConstraint(SpringLayout.WEST, _endTimeInformer, 140, SpringLayout.WEST, panel);
 		_layout.putConstraint(SpringLayout.NORTH, _endTimeInformer, 50, SpringLayout.NORTH,panel);
 		
@@ -83,18 +99,56 @@ public class createSubtitles {
 		_layout.putConstraint(SpringLayout.WEST, _subText, 115, SpringLayout.WEST, panel);
 		_layout.putConstraint(SpringLayout.NORTH, _subText, 22, SpringLayout.NORTH, panel);
 
+		
+		_jbClear = new JButton("Clear");
+		panel.add(_jbClear);
+		
+		_jbClear.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				_listModel.removeAllElements();
+				_subcounter = 1;
+			}
+			
+		});
+		
+		_layout.putConstraint(SpringLayout.WEST, _jbClear, 160, SpringLayout.WEST, panel);
+		_layout.putConstraint(SpringLayout.NORTH, _jbClear, 140, SpringLayout.NORTH, panel);
+		
+		
 		_jbAddSub = new JButton("Add Subtitle");
 		panel.add(_jbAddSub);
 		
+		_jbAddSub.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				_listModel.addElement(_subcounter + " \"" + _subText.getText() + "\" " + _startTime.getText() + " --> " + _timeInterval.getText() + " " + _fontOptionName);
+				_subcounter++;
+			}
+
+		});
+		
 		_layout.putConstraint(SpringLayout.WEST, _jbAddSub, 20, SpringLayout.WEST, panel);
-		_layout.putConstraint(SpringLayout.NORTH, _jbAddSub, 118, SpringLayout.NORTH, panel);
+		_layout.putConstraint(SpringLayout.NORTH, _jbAddSub, 140, SpringLayout.NORTH, panel);
 		
 
 		_jbCreateSub = new JButton("Create Subtitle File");
 		panel.add(_jbCreateSub);
 		
+		_jbCreateSub.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		_layout.putConstraint(SpringLayout.WEST,  _jbCreateSub, 20,  SpringLayout.WEST,  panel);
-		_layout.putConstraint(SpringLayout.NORTH, _jbCreateSub, 150,  SpringLayout.NORTH, panel);
+		_layout.putConstraint(SpringLayout.NORTH, _jbCreateSub, 172,  SpringLayout.NORTH, panel);
 	}
 	
 	private void addTimeBox(JPanel panel){
@@ -132,12 +186,25 @@ public class createSubtitles {
 
 	}
 	
+	private void addScrollPanel(JPanel panel){
+		_listModel = new DefaultListModel();
+		_subtitleList = new JList(_listModel);
+		_subtitlePane = new JScrollPane(_subtitleList);
+		
+		_subtitlePane.setPreferredSize(new Dimension(380,200));
+		panel.add(_subtitlePane);
+		
+		_layout.putConstraint(SpringLayout.WEST, _subtitlePane, 355, SpringLayout.WEST,panel);
+		_layout.putConstraint(SpringLayout.NORTH, _subtitlePane, 15, SpringLayout.NORTH,panel);
+
+	}
+	
 	private void addFontOptions(JPanel panel){
 		String[] fontOptions = {"Normal","Bold","Italics"};
 		_fontOptions = new JComboBox(fontOptions);
 		panel.add(_fontOptions);
 		_fontInformer = new JTextField();
-		_fontInformer.setText("Select Font: ");
+		_fontInformer.setText("Font Options: ");
 		_fontInformer.setEditable(false);
 		panel.add(_fontInformer);
 		_fontOptions.setSelectedIndex(0);
@@ -153,7 +220,7 @@ public class createSubtitles {
 		_layout.putConstraint(SpringLayout.WEST, _fontInformer, 20, SpringLayout.WEST, panel);
 		_layout.putConstraint(SpringLayout.NORTH, _fontInformer, 80, SpringLayout.NORTH, panel);
 		
-		_layout.putConstraint(SpringLayout.WEST, _fontOptions, 110, SpringLayout.WEST, panel);
+		_layout.putConstraint(SpringLayout.WEST, _fontOptions, 113, SpringLayout.WEST, panel);
 		_layout.putConstraint(SpringLayout.NORTH, _fontOptions, 78, SpringLayout.NORTH, panel);
 	}
 	
