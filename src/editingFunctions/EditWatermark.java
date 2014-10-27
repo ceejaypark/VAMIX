@@ -17,15 +17,17 @@ import javax.swing.SpringLayout;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * Class that sets out a tab in the JTabbedPane for the Editing Function. Inside
+ * this tab it is made possible for the user to select a video, and an image file. 
+ * The image is then added to the video as a water mark image
+ * @author - Chanjun Park
+ */
 
-public class editWatermark {
-	
-	
+public class EditWatermark {
 	
 	private JButton _jbPreview;
 	private JButton _jbWatermark;
-	SpringLayout _layout = new SpringLayout();
-
 	protected File _watermarkInputFile;
 	private JTextField _mp4Display;
 	private JTextField _titleName;
@@ -52,7 +54,8 @@ public class editWatermark {
 	protected File _inputImageFile;
 	private JTextField _inputImage;
 	private String _newFile;
-	
+	SpringLayout _layout = new SpringLayout();
+
 	
 	// Method to insert the tab into the JTabbedPane
 	public void insertWaterMarkTab(final JTabbedPane pane){

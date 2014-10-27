@@ -16,8 +16,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 
-
-public class overlayAudio {
+/** Class that sets out the tab in the JTabbedPane in the Editing Function for 
+ * the overlay of audio onto a video.
+ * 
+ * @author - Chanjun Park
+ */
+public class OverlayAudio {
 
 
 	private JButton _jbChooseVid;

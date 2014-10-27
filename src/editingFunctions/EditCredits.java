@@ -18,8 +18,11 @@ import javax.swing.SpringLayout;
 import javax.swing.SwingWorker;
 import javax.swing.JComboBox;
 
-
-public class editCredits {
+/**Class that lays out the Credits text editor functionality. This functionality allows
+ * a user to add text to the end of a video, acting as a Credits Text.
+ * @author - Chanjun Park
+ */
+public class EditCredits {
 
 	private JButton _jbPreview;
 	private JButton _jbChoose;

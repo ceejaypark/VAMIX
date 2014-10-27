@@ -25,7 +25,12 @@ import javax.swing.SwingWorker;
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 
-public class editTitle {
+
+/**Class that lays out the Title text editor functionality. This functionality allows
+ * a user to add text to the start of a video, acting as a Title Text.
+ * @author - Chanjun Park
+ */
+public class EditTitle {
 
 	private JButton _jbChoose;
 	private JButton _jbPreview;

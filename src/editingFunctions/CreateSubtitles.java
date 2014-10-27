@@ -22,7 +22,16 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.text.MaskFormatter;
 
-public class createSubtitles {
+
+/**
+ * Class that sets out the layout and functionality of the Create Subtitles feature. This
+ * feature allows a user to create a .srt file (subtitles files) which they can later use
+ * in the playback function. 
+ * 
+ * @author Chanjun Park
+ *
+ */
+public class CreateSubtitles {
 
 	SpringLayout _layout = new SpringLayout();
 	private JTextField _subText;
@@ -280,9 +289,6 @@ public class createSubtitles {
 				Object item = list.getModel().getElementAt(i);
 				String temp = (String)item;
 				String[] split = temp.split(" ");
-				for (int u = 0; u < split.length; u++){
-					System.out.println(split[u]);
-				}
 				writer.println(split[0]);
 				writer.println(split[2] + " " + split[3] + " " + split[4]);
 				if (split[5].equals("Normal")){

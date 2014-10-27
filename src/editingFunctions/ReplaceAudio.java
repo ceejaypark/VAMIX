@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -16,9 +15,14 @@ import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
+/** Class that sets out JTabbedPane for the replace audio functionality.
+ *  This functionality allows a video and audio file to be chosen, with the audio
+ *  inside the video being replaced by the audio file chosen. 
+ * @author Chanjun Park
+ *
+ */
 
-
-public class replaceAudio {
+public class ReplaceAudio {
 	private JButton _jbChooseVid;
 	private JButton _jbChooseAud;
 	private JButton _jbReplace;
@@ -44,6 +48,7 @@ public class replaceAudio {
 		setReplacePanelFeatures(removePanel);
 	}
 
+	// Method to set out some of the features in the JPanel
 	private void setReplacePanelFeatures(final JPanel panel){	
 		panel.setLayout(_layout);
 		addVidFileChooser(panel,"Choose Video File");
@@ -89,6 +94,7 @@ public class replaceAudio {
 	}
 
 
+	// Swingworker that replaces the audio in the video
 	private class replaceSwingWorker extends SwingWorker<Integer,String>{
 
 		protected void done(){
@@ -119,6 +125,7 @@ public class replaceAudio {
 
 	}
 
+	// Method that adds some features to the JPanel
 	private void addPanelFeatures(final JPanel panel){
 		//add text box requesting user to input an output name
 		_titleText = new JTextField();
@@ -162,6 +169,7 @@ public class replaceAudio {
 
 	}
 
+	// Method that adds the video file chooser to the GUI
 	private void addVidFileChooser(final JPanel panel,String text){
 		//create and add functionality for file choosing button
 		_jbChooseVid = new JButton(text);
@@ -172,7 +180,7 @@ public class replaceAudio {
 				// remove the accept all filter.
 				jfile.setAcceptAllFileFilterUsed(false);
 				// add mp4 as filter.
-				jfile.addChoosableFileFilter(new FileNameExtensionFilter("MPEG-4", "mp4"));
+				jfile.addChoosableFileFilter(new FileNameExtensionFilter("MPEG-4", "mp4","avi"));
 				int response = jfile.showOpenDialog(null);
 				if (response == JFileChooser.APPROVE_OPTION) {
 					_inputVideoFile = jfile.getSelectedFile();
@@ -204,6 +212,7 @@ public class replaceAudio {
 
 	}
 
+	// Method that adds a audio file chooser to the GUI
 	private void addAudFileChooser(final JPanel panel,String text){
 		//create and add functionality for file choosing button
 		_jbChooseAud = new JButton(text);

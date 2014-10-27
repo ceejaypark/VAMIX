@@ -21,8 +21,14 @@ import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.MaskFormatter;
 
-
-public class stripAudio {
+/** This class sets out the layout and functionality for the strip audio
+ * functionality. This allows a user to strip the audio from a video, at specified
+ * times.
+ * 
+ * @author Chanjun Park
+ *
+ */
+public class StripAudio {
 
 	private JButton _jbChoose;
 	private JButton _jbRemove;
@@ -33,9 +39,7 @@ public class stripAudio {
 	private JTextField _titleText;
 	private JTextField _jtextStart;
 	private JTextField _jtextEnd;
-
 	private JCheckBox _trueCheck;
-
 	private JFormattedTextField _startTime;
 	private JFormattedTextField _timeInterval;
 
@@ -103,7 +107,7 @@ public class stripAudio {
 		}); 
 	}
 
-
+	// Method that adds some features to the JPanel
 	private void addPanelFeatures(final JPanel panel){
 		//add text box requesting user to input an output name
 		_titleText = new JTextField();
@@ -149,6 +153,7 @@ public class stripAudio {
 
 	}
 
+	// Method that adds time inputs to the JPanel
 	private void addTimeInputs(final JPanel panel){
 
 		_jtextStart = new JTextField("Start Time :");
@@ -225,6 +230,7 @@ public class stripAudio {
 	}
 
 
+	// Adds a file chooser to the GUI, for video files.
 	private void addFileChooser(final JPanel panel){
 		//create and add functionality for file choosing button
 		_jbChoose = new JButton("Choose File");
@@ -235,7 +241,7 @@ public class stripAudio {
 				// remove the accept all filter.
 				jfile.setAcceptAllFileFilterUsed(false);
 				// add mp4 as filter.
-				jfile.addChoosableFileFilter(new FileNameExtensionFilter("MPEG-4", "mp4"));
+				jfile.addChoosableFileFilter(new FileNameExtensionFilter("MPEG-4", "mp4","avi"));
 				int response = jfile.showOpenDialog(null);
 				if (response == JFileChooser.APPROVE_OPTION) {
 					_inputFile = jfile.getSelectedFile();
