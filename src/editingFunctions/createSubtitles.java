@@ -166,7 +166,7 @@ public class createSubtitles {
 					_subInformer.setText("Please give valid times");
 				}
 				else if (_subText.getText().length() > 0){
-					_listModel.addElement(_subcounter + " \"" + _subText.getText() + "\" " + _startTime.getText() + " --> " + _timeInterval.getText() + " " + _fontOptionName);
+					_listModel.addElement(_subcounter + " " + _subText.getText() + " " + _startTime.getText() + " --> " + _timeInterval.getText() + " " + _fontOptionName);
 					_subcounter++;
 					_subInformer.setText("");
 				}
@@ -280,8 +280,23 @@ public class createSubtitles {
 				Object item = list.getModel().getElementAt(i);
 				String temp = (String)item;
 				String[] split = temp.split(" ");
-				System.out.println(temp);
+				for (int u = 0; u < split.length; u++){
+					System.out.println(split[u]);
+				}
+				writer.println(split[0]);
+				writer.println(split[2] + " " + split[3] + " " + split[4]);
+				if (split[5].equals("Normal")){
+					writer.println(split[1]);
+				}
+				else if (split[5].equals("Italics")){
+					writer.println("<i>"+split[1]+"</i>");
+				}
+				else if (split[5].equals("Bold")){
+					writer.println("<b>"+split[1]+"</b>");
+				}
+				writer.println();
 			}
+			writer.close();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
