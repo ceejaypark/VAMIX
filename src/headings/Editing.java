@@ -10,14 +10,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import editingFunctions.editCredits;
-import editingFunctions.editTitle;
-import editingFunctions.editWatermark;
-import editingFunctions.overlayAudio;
-import editingFunctions.replaceAudio;
-import editingFunctions.stripAudio;
+import editingFunctions.CreateSubtitles;
+import editingFunctions.EditCredits;
+import editingFunctions.EditTitle;
+import editingFunctions.EditWatermark;
+import editingFunctions.OverlayAudio;
+import editingFunctions.ReplaceAudio;
+import editingFunctions.StripAudio;
 
 
+
+
+
+/** Class that sets out the JTabbedPane in the EDITING header in the main GUI. 
+ *  Adds all of the tabs each representing a functionality of the VAMIX program
+ *  
+ *  @author - Chanjun Park
+ */
 public class Editing {
 
 	private void addButtonToPane(JPanel panel, JButton button){
@@ -39,23 +48,26 @@ public class Editing {
 		pane.setPreferredSize(new Dimension(200,270));
 
 		//create instances of each editing class 
-		overlayAudio oa = new overlayAudio();
-		stripAudio sa = new stripAudio();
-		replaceAudio ra = new replaceAudio();
+		OverlayAudio oa = new OverlayAudio();
+		StripAudio sa = new StripAudio();
+		ReplaceAudio ra = new ReplaceAudio();
 
 		sa.insertRemoveAudio(pane);
 		oa.insertOverlayAudio(pane);
 		ra.insertReplaceAudio(pane);
 
 		// Insert the tabs onto the JTabbedPane
-		editTitle et = new editTitle();
+		EditTitle et = new EditTitle();
 		et.insertTitlePageTab(pane);
 
-		editCredits ec = new editCredits();
+		EditCredits ec = new EditCredits();
 		ec.insertCreditPageTab(pane);
 		
-		editWatermark ew = new editWatermark();
+		EditWatermark ew = new EditWatermark();
 		ew.insertWaterMarkTab(pane);
+		
+		CreateSubtitles cs = new CreateSubtitles();
+		cs.insertSubsPageTab(pane);
 
 
 

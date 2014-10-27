@@ -28,8 +28,12 @@ import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 
-
-//Playback class is in charge of adding all features related to playback of audio and video to the gui, and of implementing functionality 
+/**
+ * Allows for the playback of video and audio files. Also allows .srt subtitle tracks to 
+ * be loaded. These .srt files can be made from the Create Subtitles feature also included
+ * @author Chanjun Park cpar831
+ *
+ */
 public class Playback {
 
 	//define variables

@@ -16,7 +16,13 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
 
-
+/**
+ * The Main class of the VAMIX program. Sets out the JFrame and adds the required
+ * components into this JFrame.
+ * 
+ * @author Chanjun Park
+ *
+ */
 public class MAIN {
 
 	//method to add button to the panel
@@ -43,7 +49,7 @@ public class MAIN {
 			@Override
 			public void run() {
 				// Create and set up the main JFrame
-				JFrame frame = new JFrame("VAMIX BETA");
+				JFrame frame = new JFrame("VAMIX");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				JPanel panel1 = new JPanel();
 				panel1.setLayout( null );
